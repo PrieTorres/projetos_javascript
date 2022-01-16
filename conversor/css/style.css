@@ -1,0 +1,108 @@
+fieldset{
+    display: inline;
+}
+legend{
+    text-align: left;
+    color: #eee;
+    font-size: 10px;
+    text-transform: uppercase;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+input{
+    width: 200px;
+    height: 25px;
+    margin: 2px;
+    border: solid 2px black;
+    background-color: rgb(39, 39, 39);
+    color: #eee;
+}
+h1{
+    text-shadow: 2px 2px 2px black;
+    color: white;
+    font-size: 50px;
+    font-family: 'VT323', monospace;
+
+}
+#pergs{
+    text-align: center;
+}
+#bot{
+    width: auto;
+    height: auto;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}
+#resps{
+    text-align: center;
+    font-size: 18px;
+    display: inline-block;
+    background-color: yellow;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 2%;
+    border: double 6px black;
+}
+body{
+    display: block;
+    text-align: center;
+    background-image: linear-gradient(rgb(85, 85, 85),rgb(22, 22, 22));
+    /*background-color: rgb(71, 71, 71);*/
+    border: solid 3px rgb(109, 109, 109);
+    min-height: 96vh;
+}
+#geral{
+    display: block;
+}
+#tex-1{
+    width: 200px;
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    font-size: 22px;
+    display: inline-block;
+}
+#tex-2{
+    position: absolute;
+    right: 10%;
+    font-size: 22px;
+    top: 15%;
+    display: inline-block;
+    width: 200px;
+}
+
+#cont-1{
+    display: grid;
+    width: 300px;
+    text-align: center;
+    
+}
+#cont-2{
+    display: grid;
+    width: 300px;
+    text-align: center;
+}
+#log{
+    position: absolute;
+    top: 5%;
+    right: 4%;
+    font-size: 22px;
+    border: 2px solid black;
+    border-radius: 10%;
+}
+#bot:hover{
+    background-color: rgb(24, 24, 24);
+    transition: 1s;
+}
+#log:hover{
+    background-color: rgb(175, 175, 175);
+    transition: 0.5s;
+}
+#log:active{
+    background-color: black;
+    color: #eee;
+    transition: 0s;
+}

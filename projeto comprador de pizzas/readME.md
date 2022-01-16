@@ -1,0 +1,1 @@
+este projeto não é inteiro de minha autoria, fiz ele através do curso do b7web(Bonieky) tendo a parte que incluía html e css já pronta, fiz a parte que incluia javascript e algumas alterações no JSON.

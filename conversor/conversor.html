@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conversor</title>
+    <link rel = "preconnect" href = "https://fonts.googleapis.com">
+    <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin> 
+    <link href = "https://fonts.googleapis.com/css2? family = VT323 & display = swap"rel =" stylesheet ">
+    <style>
+        fieldset{
+    display: inline;
+}
+legend{
+    text-align: left;
+    color: #eee;
+    font-size: 10px;
+    text-transform: uppercase;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+input{
+    width: 200px;
+    height: 25px;
+    margin: 2px;
+    border: solid 2px black;
+    background-color: rgb(39, 39, 39);
+    color: #eee;
+}
+h1{
+    text-shadow: 2px 2px 2px black;
+    color: white;
+    font-size: 50px;
+    font-family: 'VT323', monospace;
+
+}
+#pergs{
+    text-align: center;
+}
+#bot{
+    width: auto;
+    height: auto;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}
+#resps{
+    text-align: center;
+    font-size: 18px;
+    display: inline-block;
+    background-color: yellow;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 2%;
+    border: double 6px black;
+}
+body{
+    display: block;
+    text-align: center;
+    background-image: linear-gradient(rgb(85, 85, 85),rgb(22, 22, 22));
+    /*background-color: rgb(71, 71, 71);*/
+    border: solid 3px rgb(109, 109, 109);
+    min-height: 96vh;
+}
+#geral{
+    display: block;
+}
+#tex-1{
+    width: 200px;
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    font-size: 22px;
+    display: inline-block;
+}
+#tex-2{
+    position: absolute;
+    right: 10%;
+    font-size: 22px;
+    top: 15%;
+    display: inline-block;
+    width: 200px;
+}
+
+#cont-1{
+    display: grid;
+    width: 300px;
+    text-align: center;
+    
+}
+#cont-2{
+    display: grid;
+    width: 300px;
+    text-align: center;
+}
+#log{
+    position: absolute;
+    top: 5%;
+    right: 4%;
+    font-size: 22px;
+    border: 2px solid black;
+    border-radius: 10%;
+}
+#bot:hover{
+    background-color: rgb(24, 24, 24);
+    transition: 1s;
+}
+#log:hover{
+    background-color: rgb(175, 175, 175);
+    transition: 0.5s;
+}
+#log:active{
+    background-color: black;
+    color: #eee;
+    transition: 0s;
+}
+    </style>
+</head>
+<body>
+    <div id="geral">
+        <button id="log">login</button>
+        <h1>Conversor de IP</h1>
+        <div id="pergs">
+            <fieldset>
+                <legend>primeiro octeto</legend>
+                <input type="number" id="oc1" placeholder="primeiro octeto" value="100" max="255" min="1">
+            </fieldset><br>
+
+            <fieldset>
+                <legend>segundo octeto</legend>
+                <input type="number" id="oc2" placeholder="segundo octeto" value="200" max="255" min="1">
+            </fieldset><br>
+
+            <fieldset>
+                <legend>terceiro octeto</legend>
+                <input type="number" id="oc3" placeholder="terceiro octeto" value="50" max="255" min="1">
+            </fieldset><br>
+            
+            <fieldset>
+                <legend>quarto octeto</legend>
+                <input type="number" id="oc4" placeholder="quarto octeto" value="10" max="255" min="1">
+            </fieldset><br>
+
+            <fieldset>
+                <legend>máscara</legend>
+                <input type="number" name="mask" id="mask" placeholder="máscara" value="24" max="32">
+            </fieldset><br>
+
+            <input type="button" value="calcular" onclick="clique()" id="bot">
+        </div><br>
+        <div id="resps">
+
+        </div>
+        
+        <div id="cont-1">
+        <div id="tex-1">
+            <p>
+                o conversor de ip funciona da seguinte forma: cada octeto deve ter um valor de no máximo 255, e a máscara tendo um valor máximo
+                de 32, ao clicar em calcular o conversor retornará a classe desse endereço, a máscara(exemplo: 255.255.255.0), o endereço da 
+                rede, o primeiro ip, o ultimo ip e o broadcast dessa rede
+            </p>
+        </div>
+        </div>
+
+        <div id="cont-2">
+        <div id="tex-2">
+            <p>
+                se você quiser calcular os dados de mais de uma rede é só colocar os novos valores em seus respectivos lugares e clicar em calcular 
+                de novo, o resultado vai estar logo abaixo do resultado mostrado anteriormente, não há necessidade de recarregar a página
+            </p>
+        </div>
+        </div>
+        <script>
+            
+    function clique(){
+    function programa ( ) {
+        wib = window.document.getElementById("resps");
+        duc = window.document
+        
+    var rom = ('');
+    let endRd = [];
+    let ram = [];
+    let maskRd = [];
+    let lom = ('');
+    let primeip = [];
+    let ultIp = [];
+    let brodinho = [];
+
+    let aa1 = duc.getElementById('oc1')
+    let aa2 = duc.getElementById('oc2')
+    let aa3 = duc.getElementById('oc3')
+    let aa4 = duc.getElementById('oc4')
+    
+    
+
+    let oct1 = (aa1.value)
+    conversor(oct1)
+    let oct2 = (aa2.value)
+    conversor(oct2)
+    let oct3 = (aa3.value)
+    conversor(oct3)
+    let oct4 = (aa4.value)
+    conversor(oct4)
+    let mask = ''
+   
+    
+    function masca ( ) {
+        maca = duc.getElementById('mask')
+        mask = Number(maca.value)
+        return mask
+
+    }
+
+    function mascaraRede( ){
+            
+            for (var i = 0; i < ram.length; i++) {
+                if (i < mask) {
+                    maskRd.push("1")
+                    lom = lom + '1'
+                } else {
+                    maskRd.push("0")
+                    lom = lom + '0'
+                }
+            }
+            
+            wib.innerHTML += '<b>'+'mascara de rede: '+'</b>'
+            let deci1 = 0
+            let deci2 = 0
+            let deci3 = 0
+            let deci4 = 0
+            let oc1 = (maskRd.slice(0,8))
+            let oc2 = (maskRd.slice(8,16))
+            let oc3 = (maskRd.slice(16,24))
+            let oc4 = (maskRd.slice(24,32))
+            oc1.reverse()
+            oc2.reverse()
+            oc3.reverse()
+            oc4.reverse()
+            for (var i = 0; i < oc1.length; i++) {
+                deci1 = deci1 + oc1[i] * (2 ** i)
+            }
+            for (var i = 0; i < oc2.length; i++) {
+                deci2 = deci2 + oc2[i] * (2 ** i)
+            }
+            for (var i = 0; i < oc3.length; i++) {
+                deci3 = deci3 + oc3[i] * (2 ** i)
+            } 
+            for (var i = 0; i < oc4.length; i++) {
+                deci4 = deci4 + oc4[i] * (2 ** i)
+            }
+
+            wib.innerHTML += deci1+'.'+deci2+'.'+deci3+'.'+deci4+'<br>'
+
+    
+    }
+
+    function endereRed( ){
+        
+        endRd = []
+
+        for (var i = 0; i < ram.length; i++) {
+    
+        if(maskRd[i] == "1") {
+            endRd.push(ram[i]);
+        } else {
+            endRd.push("0");
+        }
+    }
+            let deci1 = 0
+            let deci2 = 0
+            let deci3 = 0
+            let deci4 = 0
+            let oc1 = (endRd.slice(0,8))
+            let oc2 = (endRd.slice(8,16))
+            let oc3 = (endRd.slice(16,24))
+            let oc4 = (endRd.slice(24,32))
+            oc1.reverse()
+            oc2.reverse()
+            oc3.reverse()
+            oc4.reverse()
+            for (var i = 0; i < oc1.length; i++) {
+                deci1 = deci1 + oc1[i] * (2 ** i)
+            }
+            for (var i = 0; i < oc2.length; i++) {
+                deci2 = deci2 + oc2[i] * (2 ** i)
+            }
+            for (var i = 0; i < oc3.length; i++) {
+                deci3 = deci3 + oc3[i] * (2 ** i)
+            } 
+            for (var i = 0; i < oc4.length; i++) {
+                deci4 = deci4 + oc4[i] * (2 ** i)
+            }
+            wib.innerHTML +='<b>'+'endereço de rede: '+'</b>'
+            wib.innerHTML += deci1+'.'+deci2+'.'+deci3+'.'+deci4+'<br>'
+    
+    
+
+    } 
+
+    function primeiroIp( ){
+        primeip = endRd;
+        primeip.pop();
+        primeip.push("1")
+
+        let deci1 = 0
+        let deci2 = 0
+        let deci3 = 0
+        let deci4 = 0
+        let oc1 = (primeip.slice(0,8))
+        let oc2 = (primeip.slice(8,16))
+        let oc3 = (primeip.slice(16,24))
+        let oc4 = (primeip.slice(24,32))
+        oc1.reverse()
+        oc2.reverse()
+        oc3.reverse()
+        oc4.reverse()
+        for (var i = 0; i < oc1.length; i++) {
+            deci1 = deci1 + oc1[i] * (2 ** i)
+        }
+        for (var i = 0; i < oc2.length; i++) {
+            deci2 = deci2 + oc2[i] * (2 ** i)
+        }
+        for (var i = 0; i < oc3.length; i++) {
+            deci3 = deci3 + oc3[i] * (2 ** i)
+        } 
+        for (var i = 0; i < oc4.length; i++) {
+            deci4 = deci4 + oc4[i] * (2 ** i)
+        }
+
+        wib.innerHTML += '<b>'+'primeiro ip: '+'</b>'
+        wib.innerHTML += deci1+'.'+deci2+'.'+deci3+'.'+deci4+'<br>'
+
+        
+        
+        
+    }
+
+    function ultimoIp( ){
+        ultIp = []
+
+        for (var i = 0; i < ram.length; i++) {
+    
+        if(maskRd[i] == "1") {
+            ultIp.push(ram[i]);
+        } else {
+            ultIp.push("1");
+        }
+    }
+
+        brodinho = ultIp;
+         wib.innerHTML += '<b>'+'broadcast: '+'</b>'
+         let deci1 = 0
+            let deci2 = 0
+            let deci3 = 0
+            let deci4 = 0
+            let oc1 = (brodinho.slice(0,8))
+            let oc2 = (brodinho.slice(8,16))
+            let oc3 = (brodinho.slice(16,24))
+            let oc4 = (brodinho.slice(24,32))
+            oc1.reverse()
+            oc2.reverse()
+            oc3.reverse()
+            oc4.reverse()
+            for (var i = 0; i < oc1.length; i++) {
+                deci1 = deci1 + oc1[i] * (2 ** i)
+            }
+            for (var i = 0; i < oc2.length; i++) {
+                deci2 = deci2 + oc2[i] * (2 ** i)
+            }
+            for (var i = 0; i < oc3.length; i++) {
+                deci3 = deci3 + oc3[i] * (2 ** i)
+            } 
+            for (var i = 0; i < oc4.length; i++) {
+                deci4 = deci4 + oc4[i] * (2 ** i)
+            }
+
+            wib.innerHTML += deci1+'.'+deci2+'.'+deci3+'.'+deci4+'<br>'
+
+         ultIp.pop();
+         ultIp.push("0");
+         wib.innerHTML += '<b>'+'ultimo ip: '+'</b>'
+         deci1 = 0
+         deci2 = 0
+         deci3 = 0
+         deci4 = 0
+         oc1 = (ultIp.slice(0,8))
+         oc2 = (ultIp.slice(8,16))
+         oc3 = (ultIp.slice(16,24))
+         oc4 = (ultIp.slice(24,32))
+         oc1.reverse()
+         oc2.reverse()
+         oc3.reverse()
+         oc4.reverse()
+         for (var i = 0; i < oc1.length; i++) {
+             deci1 = deci1 + oc1[i] * (2 ** i)
+         }
+         for (var i = 0; i < oc2.length; i++) {
+             deci2 = deci2 + oc2[i] * (2 ** i)
+         }
+         for (var i = 0; i < oc3.length; i++) {
+             deci3 = deci3 + oc3[i] * (2 ** i)
+         } 
+         for (var i = 0; i < oc4.length; i++) {
+             deci4 = deci4 + oc4[i] * (2 ** i)
+         }
+ 
+         wib.innerHTML += deci1+'.'+deci2+'.'+deci3+'.'+deci4+'<br><br>'
+ 
+       
+    }
+
+    
+
+
+    function conversor (num ) {
+        let numero = num
+         num = parseFloat(numero);
+        let binario = ''
+        let correcao = [] 
+
+        while(num > 0){ 
+            if(num % 2 == 1) {
+                binario = '1' + binario
+                num = (num - 1) / 2            
+            }
+            if(num % 2 == 0) {
+                binario = '0' + binario
+                num = num / 2    
+            }
+            if (num < 1) {
+                num = 0
+            }
+            
+        }
+        for (let unidade of binario){
+            correcao.push(unidade)
+        }
+        if (correcao[0] == 0) {
+            correcao.shift();
+        }
+
+        binario = ''
+
+        for (let cont = 0; cont < correcao.length; cont++) {
+            binario = (binario + "") + (correcao[cont] + "")
+        }
+        while(binario.length<8){
+            binario = '0'+binario
+        }
+       rom = rom + binario
+       for (var lam of binario) {
+           ram.push(lam)
+      }
+    }
+
+    let classe = ''
+    if(oct1<128){
+        classe = 'A'
+    }else if(oct1>=128&&oct1<192){
+        classe = 'B'
+    }else if(oct1>=192&&oct1<223){
+        classe = 'C'
+    }else if(oct1>=224&&oct1<239){
+        classe = 'D'
+    }else if(oct1>=240&&oct1<=255){
+        classe = 'E'
+    }
+    
+    wib.innerHTML += '<b>'+'a classe é: '+classe +'</b>'+'<br>'
+
+    
+    masca();
+    mascaraRede();
+    endereRed();
+    primeiroIp();
+    ultimoIp();
+
+}
+    programa()
+}
+        </script>
+    </div>
+</body>
+</html>
